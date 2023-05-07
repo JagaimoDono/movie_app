@@ -5,7 +5,11 @@ import 'package:movie_app/features/movie_flow/movie_flow.dart';
 import 'package:movie_app/theme/custom_theme.dart';
 
 void main() {
-  runApp(const ProviderScope(child: MainApp()));
+  runApp(
+    const ProviderScope(
+      child: MainApp(),
+    ),
+  );
 }
 
 class MainApp extends StatelessWidget {
