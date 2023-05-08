@@ -10,7 +10,7 @@ import 'package:multiple_result/multiple_result.dart';
 final movieServiceProvider = Provider<MovieService>((ref) {
   final movieRepository = ref.watch(movieRepositoryProvider);
 
-  return TMDBMovieRepository(movieRepository);
+  return TMDBMovieService(movieRepository);
 });
 
 abstract class MovieService {
@@ -20,10 +20,10 @@ abstract class MovieService {
       [DateTime? yearsBackFromDate]);
 }
 
-class TMDBMovieRepository implements MovieService {
+class TMDBMovieService implements MovieService {
   final MovieRepository _movieRepository;
 
-  TMDBMovieRepository(this._movieRepository);
+  TMDBMovieService(this._movieRepository);
   @override
   Future<Result<List<Genre>, Failure>> getMovieGenres() async {
     try {
