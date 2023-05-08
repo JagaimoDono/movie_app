@@ -1,6 +1,8 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:movie_app/core/failure.dart';
+import 'package:movie_app/core/widgets/failure_screen.dart';
 import 'package:movie_app/features/movie_flow/genre/list_card.dart';
 import 'package:movie_app/features/movie_flow/movie_flow_controller.dart';
 
@@ -54,7 +56,11 @@ class GenreScreen extends ConsumerWidget {
                       child: CircularProgressIndicator(),
                     ),
                     error: (error, stackTrace) {
-                      return const Text('Something went wrong on our end');
+                      if (error is Failure) {
+                        return FailureBody(message: error.message);
+                      }
+                      return const FailureBody(
+                          message: 'Something went wrong on our end');
                     },
                   ),
             ),
