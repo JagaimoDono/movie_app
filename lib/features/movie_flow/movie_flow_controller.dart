@@ -76,7 +76,6 @@ class MovieFlowController extends StateNotifier<MovieFlowState> {
   }
 
   void nextPage() {
-    print('Genres Before: ${state.genres.asData}');
     if (state.pageController.page! >= 1) {
       if (!state.genres.asData!.value.any((element) => element.isSelected)) {
         return;
@@ -85,7 +84,6 @@ class MovieFlowController extends StateNotifier<MovieFlowState> {
     state.pageController.nextPage(
         duration: const Duration(milliseconds: 600),
         curve: Curves.easeOutCubic);
-    print('Genres After: ${state.genres.asData}');
   }
 
   void previousPage() {
