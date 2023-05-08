@@ -9,7 +9,6 @@ import 'package:movie_app/features/movie_flow/movie_repository.dart';
 import 'package:movie_app/features/movie_flow/movie_service.dart';
 import 'package:movie_app/features/movie_flow/result/movie.dart';
 import 'package:movie_app/features/movie_flow/result/movie_entity.dart';
-import 'package:multiple_result/multiple_result.dart';
 
 class MockMovieRepository extends Mock implements MovieRepository {}
 
